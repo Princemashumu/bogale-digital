@@ -86,17 +86,13 @@ const Header = () => {
                 <i className="fas fa-home"></i>
                 <span>Home</span>
               </a>
+              <a href="#services" className={activeSection === 'services' ? 'active' : ''}>
+                <i className="fas fa-cogs"></i>
+                <span>Services</span>
+              </a>
               <a href="#portfolio" className={activeSection === 'portfolio' ? 'active' : ''}>
                 <i className="fas fa-briefcase"></i>
                 <span>Portfolio</span>
-              </a>
-              <a href="#team" className={activeSection === 'team' ? 'active' : ''}>
-                <i className="fas fa-users"></i>
-                <span>Team</span>
-              </a>
-              <a href="#testimonials" className={activeSection === 'testimonials' ? 'active' : ''}>
-                <i className="fas fa-star"></i>
-                <span>Testimonials</span>
               </a>
               <a href="#contact" className={activeSection === 'contact' ? 'active' : ''}>
                 <i className="fas fa-envelope"></i>
@@ -135,6 +131,10 @@ const Header = () => {
               <a href="#home" onClick={closeMenu}>
                 <i className="fas fa-home"></i>
                 <span>Home</span>
+              </a>
+              <a href="#services" onClick={closeMenu}>
+                <i className="fas fa-cogs"></i>
+                <span>Services</span>
               </a>
               <a href="#portfolio" onClick={closeMenu}>
                 <i className="fas fa-briefcase"></i>

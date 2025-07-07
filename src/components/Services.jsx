@@ -57,11 +57,11 @@ const Services = () => {
       technologies: ['AWS', 'Kubernetes', 'Terraform', 'Jenkins', 'Prometheus', 'Grafana'],
       pricing: 'From R15,000/month',
       duration: '2-8 weeks',
-      clients: '40+ Infrastructures Managed'
+      clients: '4+ Infrastructures Managed'
     },
     {
       id: 4,
-      title: 'Digital Transformation Consulting',
+      title: 'Digital Transformation Support',
       description: 'Strategic technology consulting to modernize your business processes',
       icon: 'fas fa-rocket',
       features: [
@@ -77,42 +77,42 @@ const Services = () => {
       duration: '1-6 months',
       clients: '25+ Transformations Led'
     },
-    {
-      id: 5,
-      title: 'Data Analytics & AI Solutions',
-      description: 'Intelligent data solutions and machine learning implementations',
-      icon: 'fas fa-brain',
-      features: [
-        'Business Intelligence Dashboards',
-        'Machine Learning Models',
-        'Data Pipeline Development',
-        'Predictive Analytics',
-        'Natural Language Processing',
-        'Computer Vision Solutions'
-      ],
-      technologies: ['Python', 'TensorFlow', 'PowerBI', 'Apache Spark', 'Elasticsearch'],
-      pricing: 'From R45,000',
-      duration: '8-20 weeks',
-      clients: '15+ AI Solutions Deployed'
-    },
-    {
-      id: 6,
-      title: 'Cybersecurity & Compliance',
-      description: 'Comprehensive security solutions and regulatory compliance',
-      icon: 'fas fa-shield-alt',
-      features: [
-        'Security Audits & Assessments',
-        'POPIA & GDPR Compliance',
-        'Penetration Testing',
-        'Security Monitoring Systems',
-        'Incident Response Planning',
-        'Staff Security Training'
-      ],
-      technologies: ['Splunk', 'Nessus', 'Wireshark', 'OWASP', 'ISO 27001'],
-      pricing: 'From R12,000',
-      duration: '2-12 weeks',
-      clients: '20+ Security Audits Completed'
-    }
+    // {
+    //   id: 5,
+    //   title: 'Data Analytics & AI Solutions',
+    //   description: 'Intelligent data solutions and machine learning implementations',
+    //   icon: 'fas fa-brain',
+    //   features: [
+    //     'Business Intelligence Dashboards',
+    //     'Machine Learning Models',
+    //     'Data Pipeline Development',
+    //     'Predictive Analytics',
+    //     'Natural Language Processing',
+    //     'Computer Vision Solutions'
+    //   ],
+    //   technologies: ['Python', 'TensorFlow', 'PowerBI', 'Apache Spark', 'Elasticsearch'],
+    //   pricing: 'From R45,000',
+    //   duration: '8-20 weeks',
+    //   clients: '15+ AI Solutions Deployed'
+    // },
+    // {
+    //   id: 6,
+    //   title: 'Cybersecurity & Compliance',
+    //   description: 'Comprehensive security solutions and regulatory compliance',
+    //   icon: 'fas fa-shield-alt',
+    //   features: [
+    //     'Security Audits & Assessments',
+    //     'POPIA & GDPR Compliance',
+    //     'Penetration Testing',
+    //     'Security Monitoring Systems',
+    //     'Incident Response Planning',
+    //     'Staff Security Training'
+    //   ],
+    //   technologies: ['Splunk', 'Nessus', 'Wireshark', 'OWASP', 'ISO 27001'],
+    //   pricing: 'From R12,000',
+    //   duration: '2-12 weeks',
+    //   clients: '20+ Security Audits Completed'
+    // }
   ];
 
   const handleServiceClick = (serviceId) => {
@@ -121,6 +121,11 @@ const Services = () => {
 
   return (
     <div className="services">
+      <div className="services-moving-shapes">
+        <div className="shape-circle"></div>
+        <div className="shape-triangle"></div>
+        <div className="shape-square"></div>
+      </div>
       <div className="services-header">
         <h2 className="services-title">Our Services</h2>
         <p className="services-subtitle">
@@ -193,6 +198,12 @@ const Services = () => {
       </div>
 
       <div className="services-cta">
+        {/* Floating shapes for CTA */}
+        <div className="cta-moving-shapes">
+          <div className="cta-shape cta-shape-circle"></div>
+          <div className="cta-shape cta-shape-triangle"></div>
+          <div className="cta-shape cta-shape-square"></div>
+        </div>
         <h3>Ready to Transform Your Business?</h3>
         <p>Get a free consultation and custom quote for your project</p>
         <button className="cta-button">Get Free Consultation</button>
