@@ -8,16 +8,19 @@
   transition: all 0.3s ease;
   transform: translateY(-100%); /* Initially hidden */
   opacity: 0;
+  height: 80px; /* Set a height to ensure it occupies space */
 }
 
 .header.hidden {
   transform: translateY(-100%);
   opacity: 0;
+  height: 80px; /* Set a height to ensure it occupies space */
 }
 
 .header.visible {
   transform: translateY(0);
   opacity: 1;
+  height: 80px; /* Set a height to ensure it occupies space */
 }
 
 .header.scrolled .contact-bar {
@@ -97,6 +100,7 @@
   border-bottom-right-radius: 25px;
   transition: all 0.3s cubic-bezier(.4,0,.2,1);
   outline: none;
+  height: 80px; /* Set a height to ensure it occupies space */
 }
 
 /* Skip to content link for accessibility */
@@ -123,6 +127,8 @@
   align-items: center;
   width: 100%;
   gap: 4rem;
+  position: relative;
+  bottom: 20px;
 }
 
 /* Logo */
@@ -132,6 +138,8 @@
   gap: 1rem;
   text-decoration: none;
   flex-shrink: 0;
+  position: relative;
+  right: 75px;
 }
 
 .logo-image {
