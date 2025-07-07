@@ -67,21 +67,19 @@ const Header = () => {
 
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''} ${isVisible ? 'visible' : 'hidden'}`}>
-
       {/* Main header */}
       <nav className="main-nav">
         <div className="container">
           <div className="nav-content">
             {/* Logo */}
-            <div className="logo">
+            <a href="#home" className="logo">
               <img
                 src={logoImage}
                 alt="Bogale Digital Solutions"
                 className="logo-image"
               />
-            
-            </div>
-
+             
+            </a>
             {/* Desktop Navigation */}
             <div className="nav-links">
               <a href="#home" className={activeSection === 'home' ? 'active' : ''}>
@@ -105,8 +103,13 @@ const Header = () => {
                 <span>Contact</span>
               </a>
             </div>
-
-
+            {/* CTA Button */}
+            <div className="nav-cta">
+              <a href="#contact" className="cta-button">
+                <i className="fas fa-rocket"></i>
+                <span>Start Project</span>
+              </a>
+            </div>
             {/* Mobile menu button */}
             <button
               className="menu-toggle"
@@ -120,7 +123,6 @@ const Header = () => {
               </span>
             </button>
           </div>
-
           {/* Mobile Navigation */}
           <div className={`mobile-nav ${isMenuOpen ? "open" : ""}`}>
             <div className="mobile-nav-header">
@@ -129,7 +131,6 @@ const Header = () => {
                 <i className="fas fa-times"></i>
               </button>
             </div>
-            
             <div className="mobile-nav-links">
               <a href="#home" onClick={closeMenu}>
                 <i className="fas fa-home"></i>
@@ -156,7 +157,6 @@ const Header = () => {
                 <span>Contact</span>
               </a>
             </div>
-            
             <div className="mobile-nav-footer">
               <div className="mobile-contact">
                 <p><i className="fas fa-phone"></i> +27 68 260 6328</p>
@@ -167,10 +167,10 @@ const Header = () => {
                 <a href="#" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
                 <a href="#" aria-label="GitHub"><i className="fab fa-github"></i></a>
               </div>
-              <button className="mobile-cta">
+              <a href="#contact" className="mobile-cta">
                 <i className="fas fa-rocket"></i>
                 Start Your Project
-              </button>
+              </a>
             </div>
           </div>
         </div>

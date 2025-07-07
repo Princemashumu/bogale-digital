@@ -65,11 +65,6 @@ function App() {
         </section>
 
 
-        {/* Testimonials Section */}
-        <section id="testimonials" className="section">
-          <Testimonials />
-        </section>
-
 
 
         {/* Contact Section */}
