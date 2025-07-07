@@ -6,31 +6,12 @@
   right: 0;
   z-index: 1000;
   transition: all 0.3s ease;
-  transform: translateY(-100%); /* Initially hidden */
-  opacity: 0;
-  height: 80px; /* Set a height to ensure it occupies space */
+  transform: translateY(0); /* Always visible */
+  opacity: 1;               /* Always visible */
+  height: 80px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
-
-.header.hidden {
-  transform: translateY(-100%);
-  opacity: 0;
-  height: 80px; /* Set a height to ensure it occupies space */
-}
-
-.header.visible {
-  transform: translateY(0);
-  opacity: 1;
-  height: 80px; /* Set a height to ensure it occupies space */
-}
-
-.header.scrolled .contact-bar {
-  transform: translateY(-100%);
-  opacity: 0;
-  height: 0;
-  overflow: hidden;
-}
-
-
 
 /* Contact Bar */
 .contact-bar {
@@ -103,6 +84,8 @@
   height: 80px;
   display: flex;
   align-items: center;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
 /* Skip to content link for accessibility */
@@ -329,6 +312,8 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
 .mobile-nav.open {
@@ -548,7 +533,12 @@
   }
 
   .logo-image {
-    height: 50px;
+    height: 100px;   /* Make logo bigger on mobile */
+    width: auto;
+    max-width: 90vw;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
   }
 
   .mobile-nav {
@@ -562,6 +552,17 @@
   .nav-content {
     grid-template-columns: auto 1fr auto;
     gap: 1rem;
+  }
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 70px; /* Adjust as needed */
+    background: rgba(255,255,255,0.95); /* Ensure background for fixed */
+    box-shadow: 0 2px 12px rgba(44,82,130,0.08);
   }
 }
 

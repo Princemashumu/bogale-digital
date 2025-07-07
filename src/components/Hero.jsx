@@ -1,72 +1,178 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation, EffectFade, Autoplay, Parallax } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-fade';
+import 'swiper/css/parallax';
 import './Hero.css';
 
 const Hero = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const backgroundImages = [
+    {
+      id: 1,
+      url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&h=1080&fit=crop&q=80',
+      title: 'Digital Innovation',
+      subtitle: 'Transforming businesses with cutting-edge technology solutions',
+      category: 'Technology Solutions'
+    },
+    {
+      id: 2,
+      url: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1920&h=1080&fit=crop&q=80',
+      title: 'Creative Design',
+      subtitle: 'Beautiful, functional designs that capture your brand essence',
+      category: 'Design & Development'
+    },
+    {
+      id: 3,
+      url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1080&fit=crop&q=80',
+      title: 'Strategic Growth',
+      subtitle: 'Data-driven strategies that accelerate your business success',
+      category: 'Business Strategy'
+    }
+  ];
+
+  const achievements = [
+    { 
+      number: '500+', 
+      label: 'Happy Clients', 
+      icon: (
+        <svg className="achievement-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 21V19A4 4 0 0 0 16 15H8A4 4 0 0 0 4 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+      )
+    },
+    { 
+      number: '1000+', 
+      label: 'Projects Completed', 
+      icon: (
+        <svg className="achievement-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 11.08V12A10 10 0 1 1 5.93 7.25" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M22 4L12 14.01L9 11.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      )
+    },
+    { 
+      number: '99.9%', 
+      label: 'Uptime Rate', 
+      icon: (
+        <svg className="achievement-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      )
+    },
+    { 
+      number: '24/7', 
+      label: 'Support Available', 
+      icon: (
+        <svg className="achievement-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+          <path d="M12 6V12L16 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      )
+    }
+  ];
+
   return (
-    <div className="hero">
-      <div className="hero-background">
-        <div className="hero-pattern"></div>
-      </div>
+    <div className={`hero ${isLoaded ? 'loaded' : ''}`}>
+      {/* Background Swiper */}
+      <div className="hero-background-swiper">
+        <Swiper
+          modules={[Pagination, Navigation, EffectFade, Autoplay, Parallax]}
+          effect="fade"
+          parallax={true}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+            bulletClass: 'background-bullet',
+            bulletActiveClass: 'background-bullet-active',
+          }}
+          navigation={{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }}
+          onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex)}
+          className="background-swiper"
+        >
+          {backgroundImages.map((bg) => (
+            <SwiperSlide key={bg.id}>
+              <div className="background-slide" data-swiper-parallax="-23%">
+                <img src={bg.url} alt={bg.title} className="background-image" />
+                <div className="background-overlay"></div>
+                <div className="background-gradient"></div>
+                <div className="background-particles"></div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        
       
+      </div>
+
+      {/* Hero Content */}
       <div className="hero-content">
-        <div className="container">
+        <div className="hero-container">
           <div className="hero-text">
-            <h1 className="hero-title">
-              <span className="title-highlight">Transforming</span> Business Through
-              <br />
-              <span className="title-gradient">Digital Innovation</span>
+            <div className="hero-badge">
+              <svg className="badge-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L13.09 8.26L22 9L13.09 15.74L12 22L10.91 15.74L2 9L10.91 8.26L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <span>Award-Winning Digital Agency</span>
+            </div>
+            
+            <h1 className="hero-title" data-swiper-parallax="-300">
+              <span className="title-line">Crafting Excellence in</span>
+              <span className="title-gradient">{backgroundImages[currentSlide]?.title}</span>
             </h1>
             
-            <p className="hero-subtitle">
-              Enterprise-grade technology solutions that drive growth, enhance efficiency, 
-              and position your business for the digital future. Trusted by 150+ companies across Africa.
+            <p className="hero-subtitle" data-swiper-parallax="-200">
+              {backgroundImages[currentSlide]?.subtitle}. We combine creativity with technology 
+              to deliver exceptional digital experiences that drive results and inspire growth.
             </p>
             
-            <div className="hero-stats">
-              <div className="stat">
-                <span className="stat-number">10+</span>
-                <span className="stat-label">Clients Served</span>
-              </div>
-              <div className="stat">
-                <span className="stat-number">20+</span>
-                <span className="stat-label">Projects Delivered</span>
-              </div>
-              <div className="stat">
-                <span className="stat-number">98.7%</span>
-                <span className="stat-label">Success Rate</span>
-              </div>
+            <div className="hero-achievements">
+              {achievements.map((achievement, index) => (
+                <div key={index} className="achievement-item">
+                  <div className="achievement-icon">{achievement.icon}</div>
+                  <div className="achievement-content">
+                    <div className="achievement-number">{achievement.number}</div>
+                    <div className="achievement-label">{achievement.label}</div>
+                  </div>
+                </div>
+              ))}
             </div>
             
-            <div className="hero-actions">
-              <button className="btn btn-primary">Start Your Project</button>
-              <button className="btn btn-secondary">View Portfolio</button>
+            <div className="hero-actions" data-swiper-parallax="-100">
+              <button className="btn btn-primary">
+                <span>Get Started Today</span>
+                
+              </button>
+              <button className="btn btn-secondary">
+                <span>View Our Work</span>
+  
+              </button>
             </div>
             
-            <div className="hero-badges">
-              <div className="badge">Microsoft Partner</div>
-              <div className="badge">AWS Certified</div>
-              <div className="badge">ISO 27001</div>
-            </div>
-          </div>
-          
-          <div className="hero-visual">
-            <div className="hero-cards">
-              <div className="floating-card card-1">
-                <div className="card-icon">💻</div>
-                <h3>Web Development</h3>
-                <p>Modern, responsive applications</p>
-              </div>
-              
-              <div className="floating-card card-2">
-                <div className="card-icon">☁️</div>
-                <h3>Cloud Solutions</h3>
-                <p>Scalable infrastructure</p>
-              </div>
-              
-              <div className="floating-card card-3">
-                <div className="card-icon">📱</div>
-                <h3>Mobile Apps</h3>
-                <p>Cross-platform development</p>
+            <div className="hero-tech-stack">
+              <div className="tech-logos">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="tech-logo" />
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" className="tech-logo" />
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" className="tech-logo" />
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="tech-logo" />
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" className="tech-logo" />
               </div>
             </div>
           </div>
