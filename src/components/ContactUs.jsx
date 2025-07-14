@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './ContactUs.css';
 
 const ContactUs = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [activeModal, setActiveModal] = useState(null);
 
   const contactCards = [
     {
@@ -35,16 +35,20 @@ const ContactUs = () => {
     { number: '5★', label: 'Client Rating' }
   ];
 
-  const handleCardClick = (link) => {
+  const handleCardClick = (index, link) => {
     if (link === '#project') {
-      setShowModal(true);
+      setActiveModal(index);
+    } else if (link.startsWith('mailto:')) {
+      setActiveModal(index);
+    } else if (link.startsWith('tel:')) {
+      setActiveModal(index);
     } else {
       window.open(link, '_blank');
     }
   };
 
   const closeModal = () => {
-    setShowModal(false);
+    setActiveModal(null);
   };
 
   return (
@@ -73,54 +77,56 @@ const ContactUs = () => {
         {/* Interactive Contact Cards */}
         <div className="contact-content">
           {contactCards.map((card, index) => (
-            <div 
-              key={index}
-              className="contact-card"
-              onClick={() => handleCardClick(card.link)}
-            >
-              <div className="card-icon">
-                <i className={card.icon}></i>
+            <>
+              <div 
+                key={index}
+                className="contact-card"
+                onClick={() => handleCardClick(index, card.link)}
+              >
+                <div className="card-icon">
+                  <i className={card.icon}></i>
+                </div>
+                <h3 className="card-title">{card.title}</h3>
+                <p className="card-description">{card.description}</p>
+                <button className="card-action">
+                  <span>{card.action}</span>
+                  <i className="fas fa-arrow-right"></i>
+                </button>
               </div>
-              <h3 className="card-title">{card.title}</h3>
-              <p className="card-description">{card.description}</p>
-              <button className="card-action">
-                <span>{card.action}</span>
-                <i className="fas fa-arrow-right"></i>
-              </button>
-            </div>
+              {/* Modal for this card */}
+              {activeModal === index && (
+                <div className="success-modal active">
+                  <div className="success-content">
+                    <div className="success-icon">
+                      <i className={card.icon}></i>
+                    </div>
+                    <h3 className="success-title">{card.title}</h3>
+                    <p className="success-message">{card.description}</p>
+                    {card.link === '#project' && (
+                      <div style={{marginBottom: '1.5rem'}}>
+                        <span style={{color:'#38d9a9', fontWeight:600}}>Our team will reach out within 24 hours to discuss your project in detail.</span>
+                      </div>
+                    )}
+                    {card.link.startsWith('tel:') && (
+                      <div style={{marginBottom: '1.5rem'}}>
+                        <span style={{color:'#38d9a9', fontWeight:600}}>Call us now or schedule a time that suits you!</span>
+                      </div>
+                    )}
+                    {card.link.startsWith('mailto:') && (
+                      <div style={{marginBottom: '1.5rem'}}>
+                        <span style={{color:'#38d9a9', fontWeight:600}}>We typically respond within 24 hours.</span>
+                      </div>
+                    )}
+                    <button className="close-modal" onClick={closeModal}>
+                      Continue Exploring
+                    </button>
+                  </div>
+                </div>
+              )}
+            </>
           ))}
         </div>
-
-        {/* Creative Stats Section */}
-        <div className="contact-stats">
-          <div className="stats-grid">
-            {stats.map((stat, index) => (
-              <div key={index} className="stat-item">
-                <div className="stat-number">{stat.number}</div>
-                <div className="stat-label">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
-
-      {/* Success Modal */}
-      {showModal && (
-        <div className={`success-modal ${showModal ? 'active' : ''}`}>
-          <div className="success-content">
-            <div className="success-icon">
-              <i className="fas fa-check"></i>
-            </div>
-            <h3 className="success-title">Let's Get Started!</h3>
-            <p className="success-message">
-              We're excited to work with you! Our team will reach out within 24 hours to discuss your project in detail.
-            </p>
-            <button className="close-modal" onClick={closeModal}>
-              Continue Exploring
-            </button>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
