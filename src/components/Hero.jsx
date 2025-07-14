@@ -20,21 +20,21 @@ const Hero = () => {
   const backgroundImages = [
     {
       id: 1,
-      url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&h=1080&fit=crop&q=80',
+      url: 'https://cdn.pixabay.com/animation/2023/10/04/10/45/10-45-38-963_512.gif', // Vibrant neon tech circuit
       title: 'Digital Innovation',
       subtitle: 'Transforming businesses with cutting-edge technology solutions',
       category: 'Technology Solutions'
     },
     {
       id: 2,
-      url: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1920&h=1080&fit=crop&q=80',
+      url: 'https://cdn.pixabay.com/animation/2023/10/04/10/45/10-45-38-962_512.gif', // Vibrant animated robot/AI
       title: 'Creative Design',
       subtitle: 'Beautiful, functional designs that capture your brand essence',
       category: 'Design & Development'
     },
     {
       id: 3,
-      url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1080&fit=crop&q=80',
+      url: 'https://cdn.pixabay.com/animation/2023/10/04/10/45/10-45-38-961_512.gif', // Vibrant data/analytics animation
       title: 'Strategic Growth',
       subtitle: 'Data-driven strategies that accelerate your business success',
       category: 'Business Strategy'
@@ -42,18 +42,9 @@ const Hero = () => {
   ];
 
   const achievements = [
+ 
     { 
-      number: '500+', 
-      label: 'Happy Clients', 
-      icon: (
-        <svg className="achievement-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 21V19A4 4 0 0 0 16 15H8A4 4 0 0 0 4 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
-        </svg>
-      )
-    },
-    { 
-      number: '1000+', 
+      number: '50+', 
       label: 'Projects Completed', 
       icon: (
         <svg className="achievement-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
