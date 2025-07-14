@@ -20,7 +20,7 @@ function App() {
     // Simulate loading time for professional feel
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 2000)
+    }, 5000)
 
     return () => clearTimeout(timer)
   }, [])
@@ -36,7 +36,11 @@ function App() {
               className="loading-logo-image"
             />
           </div>
-          <div className="loading-spinner"></div>
+          <div className="custom-loader">
+            <span className="dot"></span>
+            <span className="dot"></span>
+            <span className="dot"></span>
+          </div>
           <p>Initializing Digital Experience...</p>
         </div>
       </div>
