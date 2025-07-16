@@ -11,7 +11,7 @@ const Footer = () => {
                 <h3>Bogale Digital Solutions</h3>
                 <p>Transforming businesses through innovative technology solutions across Africa and beyond. We deliver enterprise-grade digital solutions that drive growth and innovation.</p>
                 <div className="contact-quick">
-                  <p><i className="fas fa-envelope"></i> info@bogaledigital.co.za</p>
+                  <p><i className="fas fa-envelope"></i> princengwakomashumu@gmail.com</p>
                   <p><i className="fas fa-phone"></i> +27 68 260 6328</p>
                   <p><i className="fas fa-map-marker-alt"></i> Johannesburg, South Africa</p>
                   <p><i className="fas fa-clock"></i> Mon-Fri: 8:00 AM - 6:00 PM SAST</p>
@@ -52,28 +52,22 @@ const Footer = () => {
                   <i className="fab fa-linkedin-in"></i>
                   LinkedIn
                 </a>
-                <a href="https://twitter.com/bogaledigital" className="social-link" target="_blank" rel="noopener noreferrer">
-                  <i className="fab fa-twitter"></i>
-                  Twitter
-                </a>
+
                 <a href="https://github.com/bogale-digital" className="social-link" target="_blank" rel="noopener noreferrer">
                   <i className="fab fa-github"></i>
                   GitHub
                 </a>
-                <a href="https://instagram.com/bogaledigital" className="social-link" target="_blank" rel="noopener noreferrer">
-                  <i className="fab fa-instagram"></i>
-                  Instagram
-                </a>
+            
               </div>
               
               <h4>Certifications & Partners</h4>
               <div className="certifications">
-                <div className="cert-badge">Microsoft Gold Partner</div>
-                <div className="cert-badge">AWS Advanced Partner</div>
-                <div className="cert-badge">ISO 27001 Certified</div>
+                <div className="cert-badge">Microsoft Azure</div>
+                <div className="cert-badge">Qualified developers</div>
+                <div className="cert-badge">React Certified</div>
                 <div className="cert-badge">Google Cloud Partner</div>
                 <div className="cert-badge">Agile Certified</div>
-                <div className="cert-badge">SOC 2 Compliant</div>
+                <div className="cert-badge">Scrum Master Certified</div>
               </div>
             </div>
           </div>

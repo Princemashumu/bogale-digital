@@ -17,14 +17,14 @@ const ContactUs = () => {
       title: 'Schedule a Call',
       description: 'Book a free consultation with our experts to explore solutions tailored specifically for your business needs.',
       action: 'Book Call',
-      link: 'tel:+27123456789'
+      link: 'tel:0682606328'
     },
     {
       icon: 'fas fa-envelope',
       title: 'Send Message',
       description: 'Have questions or need more information? Drop us a message and we\'ll get back to you within 24 hours.',
       action: 'Send Email',
-      link: 'mailto:hello@bogaledigital.com'
+      link: 'mailto:princengwakomashumu@gmail.com'
     }
   ];
 

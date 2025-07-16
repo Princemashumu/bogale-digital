@@ -140,18 +140,6 @@ const Header = () => {
                 <i className="fas fa-briefcase"></i>
                 <span>Portfolio</span>
               </a>
-              <a href="#team" onClick={closeMenu}>
-                <i className="fas fa-users"></i>
-                <span>Our Team</span>
-              </a>
-              <a href="#testimonials" onClick={closeMenu}>
-                <i className="fas fa-star"></i>
-                <span>Testimonials</span>
-              </a>
-              <a href="#partners" onClick={closeMenu}>
-                <i className="fas fa-handshake"></i>
-                <span>Partners</span>
-              </a>
               <a href="#contact" onClick={closeMenu}>
                 <i className="fas fa-envelope"></i>
                 <span>Contact</span>
@@ -160,11 +148,11 @@ const Header = () => {
             <div className="mobile-nav-footer">
               <div className="mobile-contact">
                 <p><i className="fas fa-phone"></i> +27 68 260 6328</p>
-                <p><i className="fas fa-envelope"></i> info@bogaledigital.co.za</p>
+                <p><i className="fas fa-envelope"></i> princengwakomashumu@gmail.com</p>
               </div>
               <div className="mobile-social">
                 <a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
-                <a href="#" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
+          
                 <a href="#" aria-label="GitHub"><i className="fab fa-github"></i></a>
               </div>
               <a href="#contact" className="mobile-cta">

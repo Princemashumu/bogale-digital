@@ -286,48 +286,67 @@
 /* === Achievement Stats === */
 .hero-achievements {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
   margin-bottom: 3rem;
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
 }
 
 .achievement-item {
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.2rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  align-items: flex-start;
+  gap: 1.2rem;
+  padding: 1.5rem 1.2rem 1.5rem 1.5rem;
+  background: linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(139,92,246,0.10) 100%);
+  border: 1.5px solid rgba(139, 92, 246, 0.18);
+  border-radius: 22px;
+  box-shadow: 0 4px 24px 0 rgba(139,92,246,0.10), 0 1.5px 8px 0 rgba(59,130,246,0.08);
+  backdrop-filter: blur(16px) saturate(120%);
+  transition: all 0.35s cubic-bezier(.4,0,.2,1);
+  position: relative;
+  overflow: hidden;
+}
+.achievement-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(251,191,36,0.08) 0%, rgba(236,72,153,0.08) 60%, rgba(139,92,246,0.10) 100%);
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 22px;
 }
 
 .achievement-item:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(120deg, rgba(251,191,36,0.13) 0%, rgba(236,72,153,0.13) 60%, rgba(139,92,246,0.15) 100%);
+  border-color: rgba(236,72,153,0.22);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 12px 36px rgba(139,92,246,0.13), 0 2px 12px rgba(236,72,153,0.10);
 }
 
 .achievement-icon {
   color: #fbbf24;
-  opacity: 0.9;
+  opacity: 1;
+  font-size: 2.1rem;
+  filter: drop-shadow(0 2px 8px rgba(251,191,36,0.12));
+  z-index: 1;
 }
 
 .achievement-number {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: white;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #fff;
   line-height: 1;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 12px rgba(139,92,246,0.10);
+  z-index: 1;
 }
 
 .achievement-label {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 500;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 600;
+  z-index: 1;
 }
 
 /* === Premium Buttons === */
